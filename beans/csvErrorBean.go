@@ -3,6 +3,7 @@ package beans
 import "gorm.io/gorm"
 
 type CsvErrorBean struct {
+	ID          int            `gorm:"primaryKey"`
 	Email       string         `json:"email"`
 	FirstName   string         `json:"first_name"`
 	LastName    string         `json:"last_name"`

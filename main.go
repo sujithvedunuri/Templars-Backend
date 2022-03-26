@@ -11,6 +11,8 @@ func main() {
 	database.Init()
 	r.GET("/login", controllers.LoginController)
 	r.GET("/errors", controllers.GetErrorsOfCsv)
+	r.POST("/addError", controllers.AddErrorList)
+	// r.GET("/deleteErro",controllers.DeleteErrorFromTAab)
 	r.Run(":8080")
 
 }

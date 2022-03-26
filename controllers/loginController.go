@@ -21,7 +21,7 @@ func LoginController(c *gin.Context) {
 	database.Db.Where("user_name = ? ", data.UserName).First(&user)
 	if (user.UserName == data.UserName) && (user.Password == data.Password) {
 		c.IndentedJSON(http.StatusOK, user)
-		fmt.Println(user)
+		fmt.Print(user)
 	}
 
 }

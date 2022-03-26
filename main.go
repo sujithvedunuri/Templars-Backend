@@ -10,6 +10,7 @@ func main() {
 	r := gin.Default()
 	database.Init()
 	r.GET("/login", controllers.LoginController)
+	r.GET("/errors", controllers.GetErrorsOfCsv)
 	r.Run(":8080")
 
 }

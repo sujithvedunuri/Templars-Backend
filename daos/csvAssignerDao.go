@@ -8,8 +8,9 @@ import (
 )
 
 func FetchErrorCsv() []beans.CsvErrorBean {
+
 	var csvErrorScheet []beans.CsvErrorBean
-	database.Db.Find(&csvErrorScheet)
+	database.Db.Where("issuer=?", "nayeem").Find(&csvErrorScheet)
 	fmt.Println(csvErrorScheet)
 	return csvErrorScheet
 }
@@ -17,14 +18,14 @@ func FetchErrorCsv() []beans.CsvErrorBean {
 func AddErrorCsvTable(csvError beans.CsvErrorBean) {
 	database.Db.Create(&csvError)
 }
-func RemoveErrorFromTable(id int) (beans.CsvErrorBean, error) {
+func RemoveErrorFromTable(mail string) (beans.CsvErrorBean, error) {
 	var ErrorData beans.CsvErrorBean
-	fmt.Println(id)
-	result := database.Db.Where("id = ?", id).First(&ErrorData)
+	fmt.Println(mail)
+	result := database.Db.Where("email = ?", mail).Find(&ErrorData).Delete(&ErrorData)
 	if result.Error != nil {
 		return ErrorData, result.Error
 	} else {
-		result := database.Db.Delete(&ErrorData, id)
+		// result := database.Db.Delete(&ErrorData, mail)
 		return ErrorData, result.Error
 
 	}

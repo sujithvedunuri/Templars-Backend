@@ -9,10 +9,10 @@ import (
 func main() {
 	r := gin.Default()
 	database.Init()
-	r.GET("/login", controllers.LoginController)
+	r.POST("/login", controllers.LoginController)
 	r.GET("/errors", controllers.GetErrorsOfCsv)
-	r.POST("/addError", controllers.AddErrorList)
-	// r.GET("/deleteErro",controllers.DeleteErrorFromTAab)
+	r.POST("/adderror", controllers.AddErrorList)
+	r.GET("/delete", controllers.DeleteErrorFromTable)
 	r.Run(":8080")
 
 }

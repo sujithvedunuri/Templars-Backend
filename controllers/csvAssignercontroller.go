@@ -11,6 +11,7 @@ import (
 
 func GetErrorsOfCsv(c *gin.Context) {
 	c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
+
 	csvErroList := daos.FetchErrorCsv()
 	c.IndentedJSON(http.StatusOK, csvErroList)
 }
@@ -28,5 +29,6 @@ func AddErrorList(c *gin.Context) {
 }
 func DeleteErrorFromTable(c *gin.Context) {
 	// id := c.Param("id")
-	// daos.RemoveErrorFromTable(strconv.(id))
+	mail := "mani@gmail.com"
+	daos.RemoveErrorFromTable(mail)
 }

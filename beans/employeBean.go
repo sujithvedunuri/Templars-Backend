@@ -5,8 +5,8 @@ import (
 )
 
 type Employee struct {
-	EID         int            `json:"eid"`
-	Email       string         `json:"email"`
+	EID         int            `json:"eid"  gorm:"primaryKey"`
+	Email       string         `json:"email" gorm:"unique" `
 	FirstName   string         `json:"first_name"`
 	LastName    string         `json:"last_name"`
 	Location    string         `json:"location"`

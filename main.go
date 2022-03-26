@@ -9,7 +9,10 @@ import (
 func main() {
 	r := gin.Default()
 	database.Init()
-	r.GET("/login", controllers.LoginController)
+	// database.DbTemp()
+	r.POST("/login", controllers.LoginController)
+	r.POST("./employeeApproval", controllers.EmployeeOnBoarding)
+	r.POST("./addemployee", controllers.AddNewEmployee)
+	r.POST("./updatestatus", controllers.UpdateEmployeeStatus)
 	r.Run(":8080")
-
 }

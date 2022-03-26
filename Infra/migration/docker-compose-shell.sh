@@ -6,8 +6,8 @@ CYAN='\033[0;36m'
 GREEN='\033[0;32m'
 
 echo -e "${RED}stopping container"
-docker stop mysql-db
+docker stop mysql-database
 echo -e "${LIGHTRED}removing container"
-docker rm mysql-db
+docker rm mysql-database
 echo -e "${GREEN}restart"
 docker compose up -d

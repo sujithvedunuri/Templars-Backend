@@ -7,7 +7,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"templars.com/backend/beans"
-	"templars.com/backend/resources/database"
+	"templars.com/backend/daos"
 )
 
 func LoginController(c *gin.Context) {
@@ -16,12 +16,11 @@ func LoginController(c *gin.Context) {
 	if err := c.BindJSON(&data); err != nil {
 		log.Fatal("error")
 	}
-	var user beans.Employee
-
-	database.Db.Where("user_name = ? ", data.UserName).First(&user)
-	if (user.UserName == data.UserName) && (user.Password == data.Password) {
-		c.IndentedJSON(http.StatusOK, user)
-		fmt.Println(user)
-	}
+	fmt.Println(data)
+	user := daos.GetLoginCredentials(data)
+    if (user.UserName == data.UserName) && (user.Password == data.Password) {
+        c.IndentedJSON(http.StatusOK, user)
+        fmt.Println(user)
+    }
 
 }

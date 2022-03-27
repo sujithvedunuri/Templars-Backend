@@ -27,7 +27,7 @@ func Init() {
 		log.Fatal("unable to connect to the database")
 	}
 	Db.AutoMigrate(&beans.Employee{})
-  Db.AutoMigrate(&beans.CsvErrorBean{})
+	Db.AutoMigrate(&beans.CsvErrorBean{})
 	Db.AutoMigrate(&beans.OnBoardingEmployees{})
 
 }
@@ -119,7 +119,7 @@ func DbTemp() {
 			IssuerName:   "kakashi",
 			PhoneNumber:  1234567895,
 			Region:       "sgp",
-			Status:       "pending",
+			Status:       "PENDING",
 		},
 		{
 			OBID:         2,
@@ -137,7 +137,7 @@ func DbTemp() {
 			IssuerName:   "kakashi",
 			PhoneNumber:  1234567896,
 			Region:       "thai",
-			Status:       "pending",
+			Status:       "PENDING",
 		},
 		{
 			OBID:         3,
@@ -155,7 +155,7 @@ func DbTemp() {
 			IssuerName:   "kakashi",
 			PhoneNumber:  1234567897,
 			Region:       "sgp",
-			Status:       "pending",
+			Status:       "PENDING",
 		},
 		{
 			OBID:         4,
@@ -173,7 +173,7 @@ func DbTemp() {
 			IssuerName:   "kakashi",
 			PhoneNumber:  1234567897,
 			Region:       "jpn",
-			Status:       "pending",
+			Status:       "PENDING",
 		},
 	}
 

@@ -14,18 +14,15 @@ func RetreiveOnBoardingEmployees(emplInfo beans.EmployeeInfo) ([]beans.OnBoardin
 
 	err := database.Db.Where("assignee_id = ? ", emplInfo.EID).Where("assignee_name = ? ", emplInfo.FirstName).Find(&onboardingInfo)
 	if err.Error != nil {
-		fmt.Println(err.Error)
 		log.Fatal("error retreiving data from OnBoarding table")
+		fmt.Println(err.Error)
 	}
-
 	return onboardingInfo, err.Error
 
 }
 
 func InsertNewEmployees(ApprovalList []beans.OnBoardingEmployees) error {
 
-	// var ApprovalList []beans.OnBoardingEmployees
-	fmt.Println(ApprovalList)
 	err := database.Db.Create(&ApprovalList)
 	if err.Error != nil {
 		fmt.Println("error creating new rows to OnBoarding Table ")

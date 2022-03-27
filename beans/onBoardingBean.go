@@ -12,9 +12,9 @@ type OnBoardingEmployees struct {
 	Role         string         `json:"role"`
 	ManagerName  string         `json:"manager_name"`
 	HRName       string         `json:"hr_name"`
-	AssigneeID   string         `json:"assignee_id"`
+	AssigneeID   int            `json:"assignee_id"`
 	AssigneeName string         `json:"assignee_name"`
-	IssuerID     string         `json:"issuer_id"`
+	IssuerID     int            `json:"issuer_id"`
 	IssuerName   string         `json:"issuer_name"`
 	PhoneNumber  int            `json:"phone_number"`
 	Region       string         `json:"region"`

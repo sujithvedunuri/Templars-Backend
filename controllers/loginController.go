@@ -19,11 +19,13 @@ func LoginController(c *gin.Context) {
 		log.Fatal("error while binding to json")
 	}
 
-	fmt.Println("data ", data)
-  
 	user := daos.GetLoginCredentials(data)
-	if (user.UserName == data.UserName) && (user.Password == data.Password){
+	if (user.UserName == data.UserName) && (user.Password == data.Password) {
 		c.IndentedJSON(http.StatusOK, user)
-		fmt.Println(user)
-  }
+		// fmt.Println(user)
+	} else {
+		fmt.Println("Invalid login credentials")
+		c.IndentedJSON(401, "Invalid Login Check Credentials")
+	}
+
 }

@@ -25,7 +25,7 @@ func LoginController(c *gin.Context) {
 		// fmt.Println(user)
 	} else {
 		fmt.Println("Invalid login credentials")
-		c.IndentedJSON(401, "Invalid Login Check Credentials")
+		c.IndentedJSON(401, gin.H{"Err": "Invalid Login Check Credentials"})
 	}
 
 }

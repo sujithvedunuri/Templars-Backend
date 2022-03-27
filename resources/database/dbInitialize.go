@@ -18,7 +18,6 @@ func Init() {
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}
-	//"root:password@tcp(127.0.0.1:3306)/TabRemDatabase?charset=utf8mb4&parseTime=True&loc=Local"
 
 	dbformat := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8mb4&parseTime=True&loc=Local", os.Getenv("DB_USERNAME"), os.Getenv("DB_PASSWORD"), os.Getenv("DB_HOST"), os.Getenv("DB_NAME"))
 
@@ -28,6 +27,7 @@ func Init() {
 		log.Fatal("unable to connect to the database")
 	}
 	Db.AutoMigrate(&beans.Employee{})
+  Db.AutoMigrate(&beans.CsvErrorBean{})
 	Db.AutoMigrate(&beans.OnBoardingEmployees{})
 
 }
